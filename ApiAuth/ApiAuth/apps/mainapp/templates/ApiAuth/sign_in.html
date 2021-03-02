@@ -1,0 +1,17 @@
+<form id="Form">
+    <input id="username" type="text" name="username" placeholder="Username">
+    <input id="password" type="password" name="password" placeholder="Password">
+    <input type="submit">
+</form>
+
+<script>
+    Form.onsubmit = async (e) => {
+        e.preventDefault();
+        let response = await fetch('http://127.0.0.1:8000/api/sign/in/', {
+            method: 'POST',
+            body: new FormData(Form)
+        });
+        let result = await response.json();
+        alert(result.message);
+    }; 
+</script>
