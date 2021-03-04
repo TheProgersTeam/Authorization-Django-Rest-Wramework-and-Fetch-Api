@@ -17,7 +17,6 @@ class SignUpApi(APIView):
 
 class SignInApi(APIView):
     def post(self, request):
-        print(request.data)
         username, password = request.data.get("username"), request.data.get("password")
         user = authenticate(username=username, password=password)
         if user:
